@@ -45,6 +45,7 @@ While preprocessing the image, we needed to keep our findings from our EDA in mi
 * Crop out black borders
 * Center image
 * Circular crop around image center
+* Resized to 224\*224
 ### Image Augmentations
 Following data augmentations were applied to generalize the data :
 
@@ -53,9 +54,15 @@ Following data augmentations were applied to generalize the data :
 * Full 360 degrees rotation
 * Lighting
 
+### External Data
+We found that there was another competition dataset for _diabetic retinopathy_ with similar label hierarchy. We included this data with our exiting data to make our model more robust.
+
 ## Experiments
 ### Classification with BCEWithLogitsLoss
+
+
 ### Classification with FocalLoss on CrossEntropyLoss
+As the competition dataset is quite imbalanced, overfitting on majority classes was a big hurdle. To combat this, we decided to use [focalloss](https://arxiv.org/abs/1708.02002). 
 ### Ordinal Regression
 ### Huber Regression
 ### ArcFace
