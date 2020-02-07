@@ -61,8 +61,10 @@ We found that there was another competition dataset for _diabetic retinopathy_ w
 ### Classification with BCEWithLogitsLoss
 
 
-### Classification with FocalLoss on CrossEntropyLoss
-As the competition dataset is quite imbalanced, overfitting on majority classes was a big hurdle. To combat this, we decided to use [focalloss](https://arxiv.org/abs/1708.02002). 
+### Classification with FocalLoss
+As the competition dataset is quite imbalanced, overfitting on majority classes was a big hurdle. To combat this, we decided to use [focal loss](https://arxiv.org/abs/1708.02002). This paper proposes to modify CrossEntropyLoss in such a way that it downweights well-classified examples. This idea essentially means that miss-classification in otherwise well-classified example classes do not contribute as much to the training loss, so their training is somewhat halted.
+
+For this experiment, we implemented FocalLoss and used this custom loss function in our model. FastAI library was used to create the model training framework.
 ### Ordinal Regression
 ### Huber Regression
 ### ArcFace
