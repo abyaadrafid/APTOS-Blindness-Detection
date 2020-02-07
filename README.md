@@ -10,7 +10,7 @@ This Competition was hosted by Asia Pacific Tele-Ophthalmology Society (APTOS). 
 
 Submission scores were based on Quadratic Weighted Kappa.
 
-## Hypotheses, Approaches and Experiments
+## Hypotheses and Approaches
 
 ### Task definition
 This competition can be considered a classification as well as a regression problem. As there are distinct classes of images in the set, it could be seen as a classification task. On the other hand, the labels represented the severity of the _diabetic retinopathy_, turning it into an ordinal regression problem. We explored both of these hypotheses.
@@ -27,6 +27,35 @@ This competition can be considered a classification as well as a regression prob
 * Classification with FocalLoss with CrossEntropy
 * Ordinal Regression
 * Huber Regression
+* ArcFace 
 
 ## EDA
-After some EDA on the dataset it was apparent that some image pre-processing was needed. The images were taken in different light conditions, with some of them too dark to use in neural models directly. Additionally, images in the dataset were also of irregular sizes.
+After some EDA on the dataset it was apparent that some image pre-processing was needed. Our major takeaways were following :
+
+* Images were taken in different light conditions.
+* Images of different classes had different sizes and aspect ratios.
+* The data set was imbalanced.
+
+We came up with approaches to normalize the dataset for better performance.
+
+## Pre-processing and Augmentations 
+### Image Pre-processing
+While preprocessing the image, we needed to keep our findings from our EDA in mind. We decided to apply following pre-processing steps :
+
+* Crop out black borders
+* Center image
+* Circular crop around image center
+### Image Augmentations
+Following data augmentations were applied to generalize the data :
+
+* Vertical Flip
+* Horizontal Flip
+* Full 360 degrees rotation
+* Lighting
+
+## Experiments
+### Classification with BCEWithLogitsLoss
+### Classification with FocalLoss on CrossEntropyLoss
+### Ordinal Regression
+### Huber Regression
+### ArcFace
